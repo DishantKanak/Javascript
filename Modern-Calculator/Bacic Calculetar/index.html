@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <section>
+
+            <div class="calculator">
+
+                <input type="text" id="demo" readonly>   <!--input for Show Result-->
+                <div class="buttons">    <!-- all buttons-->
+                    <button class="clear" id="c">C</button>  <!-- for result clear-->
+                    <button class="operator" onclick="display('/')">/</button>  <!-- for Division -->
+                    <button class="operator" onclick="display('*')">×</button>   <!-- for Multiplication -->
+                    <button class="operator" onclick="display('-')">-</button>   <!-- for Subtraction -->
+
+                    <button class="number" onclick="display('7')">7</button>
+                    <button class="number" onclick="display('8')">8</button>
+                    <button class="number" onclick="display('9')">9</button>
+                    <button class="operator" onclick="display('+')">+</button>  <!--for Addition-->
+
+                    <button class="number" onclick="display('4')">4</button>
+                    <button class="number" onclick="display('5')">5</button>
+                    <button class="number" onclick="display('6')">6</button>
+                    <button class="operator" onclick="display('.')">.</button>
+
+                    <button class="number" onclick="display('1')">1</button>
+                    <button class="number" onclick="display('2')">2</button>
+                    <button class="number" onclick="display('3')">3</button>
+                    <button class="equals" onclick="result()">=</button>    <!-- calculat value-->
+
+                    <button class="number" onclick="display('0')">0</button>
+                    <button class="number" onclick="display('00')">00</button>
+                    <button class="number" onclick="display('000')">000</button>
+                     <button class="operator" onclick="display('%')">%</button>  <!-- for Modulo -->
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,109 @@
+:root {
+    --primary-color: #2d3436;
+    --secondary-color: #0984e3;
+    --accent-color: #00b894;
+    --operator-color: #fdcb6e;
+    --clear-color: #d63031;
+    --button-hover: #636e72;
+    --display-bg: #dfe6e9;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculator {
+    background-color: var(--primary-color);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 320px;
+}
+
+#demo {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: right;
+    padding: 15px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--display-bg);
+    color: var(--primary-color);
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    padding: 18px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #636e72;
+    color: white;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.operator {
+    background-color: var(--operator-color);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.operator:hover {
+    background-color: #fdcb6e;
+}
+
+.equals {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+}
+
+.equals:hover {
+    background-color: #00a884;
+}
+
+.clear {
+    background-color: var(--clear-color);
+    color: white;
+    font-weight: bold;
+}
+
+.clear:hover {
+    background-color: #c0392b;
+}
+
+.number {
+    background-color: #2d3436;
+    color: white;
+}
+
+.number:hover {
+    background-color: var(--button-hover);
+} 
