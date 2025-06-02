@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+
+</head>
+
+
+<body>
+
+    <form>
+
+        <input type="number" placeholder="Enter Number" id="userInput">
+
+        <button type="button" id="btn">Submit</button>
+
+        <div class="result">
+
+            <h2 id="result"></h2>
+
+            <h2 id="length"></h2>
+            
+        </div>
+
+    </form>
+
+</body>
+
+
+<script>
+
+    let userInput = document.getElementById("userInput");  
+
+let result =document.getElementById("result") 
+
+let length = document.getElementById("length")
+
+let newInput = "";
+
+function sum() {
+    
+    if (userInput.value === "") { 
+
+        result.innerHTML = "Enter a number";
+        
+        length.innerHTML = "";
+        
+    } else {
+        
+        let userFild = parseFloat(userInput.value); 
+        
+        newInput += userFild; 
+        
+        let array = newInput.split(''); 
+        
+        if (array.length === 1) { 
+            result.innerHTML = "Enter more number";
+
+            length.innerHTML = "You entered: 1 number";
+
+        }else{
+
+            newInput = "";
+
+           
+    
+            let i = 0;
+    
+            let totel = 0;
+    
+            while (i < array.length) {  
+    
+                totel += parseFloat(array[i]);
+    
+                i++;
+    
+                result.innerHTML = "Totale is : " + totel;
+    
+                length.innerHTML = "You Enter a number: " + array.length;
+    
+            };
+
+        }
+
+       
+
+    }
+
+};
+
+
+document.getElementById("btn").addEventListener("click", sum); 
+</script>
+
+</html>
