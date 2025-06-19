@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Managment System</title>
+</head>
+
+<body>
+    <form>
+        <input id="userName" type="text" placeholder="Enter Student name">
+        <input id="userStn" type="number" placeholder="Enter Standard">
+        <input id="userRoll" type="number" placeholder="Enter Roll number">
+        <input id="passORfill" type="text" placeholder="Enter Student is pass or fill">
+        <button id="btn" type="button">Submit</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Standard</th>
+                    <th>Roll number</th>
+                    <th>Result</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="result"></tbody>
+        </table>
+    </form>
+</body>
+<script>
+
+    let result = document.getElementById("result")
+    let showData = () => {
+        let oldData = getdata()
+        result.innerHTML=""
+        oldData.forEach((val,index) => {
+            result.innerHTML += `
+            <tr>  
+                <td>${val.name}</td>
+                <td>${val.stn}</td>
+                <td>${val.roll}</td>
+                <td>${val.passorfill}</td>
+                <td> <button type="button"  onclick="deletee(${index})" >Delete</button> </td> 
+             </tr>`
+        });
+
+    }
+
+    document.getElementById("btn").addEventListener("click", menejment)
+
+    function menejment() {
+        let userName = document.getElementById("userName");
+        let userStn = parseFloat(document.getElementById("userStn").value);
+        let userRoll = parseFloat(document.getElementById("userRoll").value);
+        let passORfill = document.getElementById("passORfill");
+
+
+        class Student {
+            constructor(name, stn, roll, passorfill) {
+                this.name = name.value,
+                    this.stn = stn,
+                    this.roll = roll,
+                    this.passorfill = passorfill.value
+            }
+
+            show() {
+                let object = {
+                    name: userName.value,
+                    stn: userStn,
+                    roll: userRoll,
+                    passorfill: passORfill.value
+                }
+
+                showData()
+
+                let use = getdata()
+                use.push(object)
+                console.log(use);
+                localStorage.setItem("student", JSON.stringify(use))
+            }
+        }
+
+
+        let student = new Student(userName, userStn, userRoll, passORfill)
+        student.show()
+        window.location.reload()
+    }
+    
+    function getdata() {
+        return JSON.parse(localStorage.getItem("student")) || []
+    }
+
+    function deletee(index) {
+
+        let student =getdata()
+     student.splice(index)
+        localStorage.setItem("student", JSON.stringify(student))
+    }
+
+    showData()
+</script>
+
+</html>
